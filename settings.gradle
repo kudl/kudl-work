@@ -1,0 +1,3 @@
+rootProject.name = 'kudl-work'
+
+include 'kudl-admin', 'kudl-api', 'kudl-base'

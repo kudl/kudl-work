@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.9.RELEASE'
+        lombokVersion = '1.18.10'
+        swaggerVesion = '2.9.2'
+    }
+}
+
+plugins {
+    id "java"
+    id "org.springframework.boot" version "2.1.9.RELEASE"
+}
+
+allprojects {
+    group = 'com.kudlwork.boot'
+    version = '0.0.1'
+    sourceCompatibility = '11'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+    }
+
+    test.useJUnitPlatform()
+}
+
+bootJar {
+    enabled = false
+}
+
+task hello {
+    println "Hello Kudl!!"
+}

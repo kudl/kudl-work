@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ProductRepositoryTest {
@@ -20,6 +22,6 @@ public class ProductRepositoryTest {
 	public void productFindTest() {
 		List<Product> productList = productRepository.findAll();
 
-		System.out.println("1111");
+		assertThat(productList.size()).isNotNull();
 	}
 }

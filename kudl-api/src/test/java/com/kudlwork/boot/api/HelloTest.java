@@ -1,7 +1,8 @@
-package com.kudlwork.boot.base;
+package com.kudlwork.boot.api;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class KudlBaseTestApplication {
+public class HelloTest {
+
 }

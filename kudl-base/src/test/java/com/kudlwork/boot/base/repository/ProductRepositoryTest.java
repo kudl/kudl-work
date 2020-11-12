@@ -1,6 +1,7 @@
 package com.kudlwork.boot.base.repository;
 
 import com.kudlwork.boot.base.model.Product;
+import com.kudlwork.boot.base.model.ProductDetail;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,5 +21,12 @@ public class ProductRepositoryTest {
 		List<Product> productList = productRepository.findAll();
 
 		assertThat(productList.size()).isNotNull();
+	}
+
+	@Test
+	public void findAllProductDetailTest() {
+		List<ProductDetail> productDetails = productRepository.findAllProductDetail();
+
+		assertThat(productDetails.size()).isNotNull();
 	}
 }

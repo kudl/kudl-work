@@ -1,13 +1,8 @@
 package com.kudlwork.boot.base.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
 @Entity
 public class ProductItem {
 
@@ -21,7 +16,9 @@ public class ProductItem {
 	@Column(name = "name")
 	private String name;
 
+	@Column(name = "created_at", nullable = false)
 	private LocalDateTime createdAt;
 
+	@Column(name = "updated_at", nullable = false)
 	private LocalDateTime updatedAt;
 }

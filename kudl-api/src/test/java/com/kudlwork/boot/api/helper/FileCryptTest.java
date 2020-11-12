@@ -24,8 +24,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @Disabled
@@ -52,7 +51,7 @@ public class FileCryptTest {
 	public void testBaseEncode() throws UnsupportedEncodingException {
 		String encodeIV = new String(Base64.encodeBase64(PLAIN_IV.getBytes("UTF-8")));
 
-		assertThat(ENCODE_IV, is(encodeIV));
+		assertThat(ENCODE_IV).isEqualTo(encodeIV);
 	}
 
 	@DisplayName("Test Image Crypt Request")
@@ -65,7 +64,7 @@ public class FileCryptTest {
 		when(restTemplate.postForEntity(SERVER_URL.toString(), requestEntity, String.class))
 			.thenReturn(response);
 
-		assertThat(response.getStatusCode(), is(HttpStatus.OK));
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}
 
 	private ResponseEntity mockResponseEntity() {

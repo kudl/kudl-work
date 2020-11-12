@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.9.RELEASE'
+        springBootVersion = '2.3.5.RELEASE'
         lombokVersion = '1.18.10'
         swaggerVesion = '2.9.2'
     }
@@ -8,7 +8,7 @@ buildscript {
 
 plugins {
     id "java"
-    id "org.springframework.boot" version "2.1.9.RELEASE"
+    id "org.springframework.boot" version "2.3.5.RELEASE"
 }
 
 subprojects {
@@ -29,11 +29,13 @@ subprojects {
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
         testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
+        testCompile 'org.junit.platform:junit-platform-engine:1.7.0'
+        testCompile 'org.junit.platform:junit-platform-commons:1.7.0'
     }
 
     test.useJUnitPlatform()
